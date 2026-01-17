@@ -1,0 +1,214 @@
+{
+  "title": "Linear Systems Cheatsheet",
+  "sections": [
+    {
+      "heading": "Linear Equations and Systems",
+      "bullets": [
+        {
+          "text": "A linear equation with n variables in standard form: a₁x₁ + a₂x₂ + ... + aₙxₙ = b. Coefficients are aᵢ, b is the constant. Homogeneous if b=0.",
+          "page": 3,
+          "formulas": [],
+          "type": "definition"
+        },
+        {
+          "text": "A system of linear equations (linear system) is a finite number of linear equations. Standard form for m equations and n variables: a₁₁x₁ + ... + a₁nxn = b₁, ..., am₁x₁ + ... + amnxn = bm. Homogeneous if all bᵢ=0.",
+          "page": 5,
+          "formulas": [],
+          "type": "definition"
+        },
+        {
+          "text": "A linear system can have no solution (inconsistent), a unique solution, or infinitely many solutions (consistent).",
+          "page": 11,
+          "formulas": [],
+          "type": "core_concept"
+        },
+        {
+          "text": "For 2 variables (lines): no solution (parallel distinct), unique solution (intersect at one point), infinitely many solutions (coincide).",
+          "page": 12,
+          "formulas": [],
+          "type": "core_concept"
+        },
+        {
+          "text": "For 3 variables (planes): no solution (parallel distinct or lines of intersection don't intersect), unique solution (intersect at a point), infinitely many solutions with 1 parameter (intersect along a line), infinitely many solutions with 2 parameters (coincide).",
+          "page": 16,
+          "formulas": [],
+          "type": "core_concept"
+        }
+      ]
+    },
+    {
+      "heading": "Augmented Matrix and Row Operations",
+      "bullets": [
+        {
+          "text": "An augmented matrix represents a linear system. Coefficients on LHS, constants on RHS.",
+          "page": 23,
+          "formulas": [],
+          "type": "definition"
+        },
+        {
+          "text": "Elementary Row Operations: 1. Rᵢ ↔ Rⱼ (Exchanging rows). 2. Rᵢ + cRⱼ (Adding a multiple of a row to another). 3. aRⱼ (Multiplying a row by a nonzero constant).",
+          "page": 42,
+          "formulas": [],
+          "type": "definition"
+        },
+        {
+          "text": "Performing elementary row operations on the augmented matrix of a linear system preserves its solutions.",
+          "page": 42,
+          "formulas": [],
+          "type": "core_concept"
+        },
+        {
+          "text": "Two matrices are row equivalent if one can be obtained from the other by elementary row operations. Row equivalent systems have the same solutions.",
+          "page": 45,
+          "formulas": [],
+          "type": "definition"
+        },
+        {
+          "text": "Reverse of Rᵢ ↔ Rⱼ is Rᵢ ↔ Rⱼ. Reverse of Rᵢ + cRⱼ is Rᵢ - cRⱼ. Reverse of aRⱼ is (1/a)Rⱼ (a≠0).",
+          "page": 52,
+          "formulas": [],
+          "type": "core_concept"
+        },
+        {
+          "text": "Multiplying a row by 0 can change the solution set of a linear system.",
+          "page": 46,
+          "formulas": [],
+          "type": "core_concept"
+        }
+      ]
+    },
+    {
+      "heading": "Row-Echelon Forms",
+      "bullets": [
+        {
+          "text": "Row-Echelon Form (REF): 1. Zero rows are at the bottom. 2. Leading entries move to the right as you go down rows.",
+          "page": 27,
+          "formulas": [],
+          "type": "definition"
+        },
+        {
+          "text": "A column containing a leading entry is a pivot column; otherwise, it's a non-pivot column.",
+          "page": 27,
+          "formulas": [],
+          "type": "definition"
+        },
+        {
+          "text": "Reduced Row-Echelon Form (RREF): In REF, plus: 3. Leading entries are 1. 4. Entries above and below leading entries in pivot columns are 0.",
+          "page": 28,
+          "formulas": [],
+          "type": "definition"
+        },
+        {
+          "text": "RREF is a special case of REF.",
+          "page": 28,
+          "formulas": [],
+          "type": "core_concept"
+        },
+        {
+          "text": "An augmented matrix in REF or RREF makes it easy to extract solutions.",
+          "page": 32,
+          "formulas": [],
+          "type": "core_concept"
+        }
+      ]
+    },
+    {
+      "heading": "Algorithms for Solving Linear Systems",
+      "bullets": [
+        {
+          "text": "Gaussian Elimination: Reduce augmented matrix to REF using elementary row operations.",
+          "page": 64,
+          "formulas": [],
+          "type": "algorithm"
+        },
+        {
+          "text": "Gauss-Jordan Elimination: Reduce augmented matrix to RREF using elementary row operations.",
+          "page": 65,
+          "formulas": [],
+          "type": "algorithm"
+        },
+        {
+          "text": "Steps for Gaussian Elimination: 1. Find leftmost non-zero column. 2. Swap rows to bring non-zero entry to top. 3. Make entries below the leading entry zero by adding multiples of the top row. 4. Repeat for submatrix below the first row.",
+          "page": 62,
+          "formulas": [],
+          "type": "algorithm"
+        },
+        {
+          "text": "Steps for Gauss-Jordan Elimination (continues from Gaussian): 5. Make all leading entries 1. 6. Make entries above leading entries zero by adding multiples of rows.",
+          "page": 65,
+          "formulas": [],
+          "type": "algorithm"
+        }
+      ]
+    },
+    {
+      "heading": "Extracting Solutions",
+      "bullets": [
+        {
+          "text": "If augmented matrix is in REF, use back-substitution to find solutions.",
+          "page": 32,
+          "formulas": [],
+          "type": "algorithm"
+        },
+        {
+          "text": "If augmented matrix is in RREF, read off solutions directly.",
+          "page": 32,
+          "formulas": [],
+          "type": "algorithm"
+        },
+        {
+          "text": "System is inconsistent if and only if the RHS (last column) of the augmented matrix in REF/RREF is a pivot column.",
+          "page": 37,
+          "formulas": [],
+          "type": "core_concept"
+        },
+        {
+          "text": "Assign parameters to variables corresponding to non-pivot columns in the LHS of the augmented matrix.",
+          "page": 38,
+          "formulas": [],
+          "type": "algorithm"
+        },
+        {
+          "text": "The number of parameters needed equals the number of non-pivot columns.",
+          "page": 38,
+          "formulas": [],
+          "type": "core_concept"
+        },
+        {
+          "text": "General solution captures all possible solutions. Parameters (e.g., s, t) can be any real number.",
+          "page": 9,
+          "formulas": [],
+          "type": "definition"
+        }
+      ]
+    },
+    {
+      "heading": "Summary of Solving Process",
+      "bullets": [
+        {
+          "text": "1. Write linear system in standard form. 2. Form augmented matrix. 3. Reduce to REF or RREF (Gaussian/Gauss-Jordan). 4. Check for inconsistency (RHS is pivot column). 5. If consistent, assign parameters to non-pivot columns. 6. If RREF, read solutions. If REF, use back-substitution. 7. Write down general solution.",
+          "page": 69,
+          "formulas": [],
+          "type": "algorithm"
+        }
+      ]
+    },
+    {
+      "heading": "Properties of REF/RREF",
+      "bullets": [
+        {
+          "text": "Number of pivot columns = number of nonzero rows in REF.",
+          "page": 39,
+          "formulas": [],
+          "type": "core_concept"
+        },
+        {
+          "text": "A matrix in RREF is also in REF.",
+          "page": 28,
+          "formulas": [],
+          "type": "core_concept"
+        }
+      ]
+    }
+  ]
+}
