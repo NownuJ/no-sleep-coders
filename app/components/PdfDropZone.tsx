@@ -9,13 +9,11 @@ interface PdfDropZoneProps {
 
 export default function PdfDropZone({onFileChange}: PdfDropZoneProps) {
 
-  const [files, setFiles] = useState<File[]>([]);
 
   const onDrop = useCallback((acceptedFiles: File[]) => {
-    const updated = [...acceptedFiles, ...files]
-    setFiles(updated);
-    onFileChange(updated);
-  }, [files, onFileChange]) // files and onFileChange dependencies to update function when they change
+    // Push new files to parent component
+    onFileChange(acceptedFiles);
+  }, [onFileChange]) // onFileChange dependency to update function when they change
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ 
     onDrop,
