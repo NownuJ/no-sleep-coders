@@ -1,8 +1,12 @@
 'use client'
 
+import { useState } from "react";
 import PdfDropZone from "./PdfDropZone"
 
 export default function CheatSheetGenerator() {
+
+    const [files, setFiles] = useState<File[]>([]);
+    
     return (
         <div className="w-full max-w-3xl mx-auto mt-10 px-6">
             <div className="text-center mb-8">
@@ -15,8 +19,13 @@ export default function CheatSheetGenerator() {
             </div>
             
             <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                <PdfDropZone/>
+                <PdfDropZone onFileChange={setFiles}/>
             </div>
+            <ul>
+                {files.map(file => (
+                    <li key={file.name}>{file.name}</li>
+                ))}
+            </ul>
         </div>
     ) 
 }

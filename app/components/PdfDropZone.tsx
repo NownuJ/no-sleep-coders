@@ -3,21 +3,19 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
 
-export default function PdfDropZone() {
+interface PdfDropZoneProps {
+  onFileChange: (files: File[]) => void;
+}
+
+export default function PdfDropZone({onFileChange}: PdfDropZoneProps) {
 
   const [files, setFiles] = useState<File[]>([]);
 
   const onDrop = useCallback((acceptedFiles: File[]) => {
-    setFiles(prev => {
-      const updated = [...prev, ...acceptedFiles]
-      setFiles(updated);
-      console.log("Files added: ");
-      acceptedFiles.forEach(x => console.log(x.name));
-      console.log("Current files: ");
-      updated.forEach(y => console.log(y.name));
-      return updated;
-    })
-  }, [])
+    const updated = [...acceptedFiles, ...files]
+    setFiles(updated);
+    onFileChange(updated);
+  }, [files, onFileChange]) // files and onFileChange dependencies to update function when they change
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ 
     onDrop,
@@ -65,12 +63,6 @@ export default function PdfDropZone() {
           </p>
         </div>
       )}
-
-      <ul>
-        {files.map(file => (
-          <li key={file.name}>{file.name}</li>
-        ))}
-      </ul>
     </div>
   )
 }
