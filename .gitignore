@@ -43,3 +43,4 @@ next-env.d.ts
 storage
 /backend/storage/parsed/*
 /backend/storage/uploads/*
+/backend/services/__pycache__
